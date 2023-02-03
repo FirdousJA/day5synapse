@@ -1,0 +1,130 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "firdousparkpool",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "c16fa762-0b45-46b9-91c9-887f74c1ced7"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"c08059cc-9f2f-468f-8d7f-d4645ef305ec": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "253.08985570616528",
+										"1": "56.39462177525142",
+										"2": "2023-02-03T07:36:00Z"
+									},
+									{
+										"0": "252.82827884994092",
+										"1": "57.77628987790469",
+										"2": "2023-02-03T07:38:00Z"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "averageEngineTemperature",
+										"type": "double"
+									},
+									{
+										"key": "1",
+										"name": "averageSpeed",
+										"type": "double"
+									},
+									{
+										"key": "2",
+										"name": "snapshot",
+										"type": "string"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"1"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/8f83229c-493b-43bf-a67b-0f41a5f7bca9/resourceGroups/Day5RG/providers/Microsoft.Synapse/workspaces/firdoussynapsews/bigDataPools/firdousparkpool",
+				"name": "firdousparkpool",
+				"type": "Spark",
+				"endpoint": "https://firdoussynapsews.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/firdousparkpool",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 3,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://fscontainer@firdousadlsgen2.dfs.core.windows.net/vehical', format='json', header=True)\r\n",
+					"display(df.limit(100))"
+				],
+				"execution_count": 8
+			}
+		]
+	}
+}
