@@ -18,71 +18,11 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "c16fa762-0b45-46b9-91c9-887f74c1ced7"
+				"spark.autotune.trackingId": "7c70e6fa-7bd4-49fc-9776-e40225d26069"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
-			"synapse_widget": {
-				"version": "0.1",
-				"state": {
-					"c08059cc-9f2f-468f-8d7f-d4645ef305ec": {
-						"type": "Synapse.DataFrame",
-						"sync_state": {
-							"table": {
-								"rows": [
-									{
-										"0": "253.08985570616528",
-										"1": "56.39462177525142",
-										"2": "2023-02-03T07:36:00Z"
-									},
-									{
-										"0": "252.82827884994092",
-										"1": "57.77628987790469",
-										"2": "2023-02-03T07:38:00Z"
-									}
-								],
-								"schema": [
-									{
-										"key": "0",
-										"name": "averageEngineTemperature",
-										"type": "double"
-									},
-									{
-										"key": "1",
-										"name": "averageSpeed",
-										"type": "double"
-									},
-									{
-										"key": "2",
-										"name": "snapshot",
-										"type": "string"
-									}
-								],
-								"truncated": false
-							},
-							"isSummary": false,
-							"language": "scala"
-						},
-						"persist_state": {
-							"view": {
-								"type": "details",
-								"chartOptions": {
-									"chartType": "bar",
-									"aggregationType": "sum",
-									"categoryFieldKeys": [
-										"1"
-									],
-									"seriesFieldKeys": [
-										"0"
-									],
-									"isStacked": false
-								}
-							}
-						}
-					}
-				}
-			},
 			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_pyspark",
@@ -98,14 +38,13 @@
 				"endpoint": "https://firdoussynapsews.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/firdousparkpool",
 				"auth": {
 					"type": "AAD",
-					"authResource": "https://dev.azuresynapse.net",
-					"authHeader": null
+					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.2",
 				"nodeCount": 3,
 				"cores": 4,
 				"memory": 28,
-				"extraHeader": null
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
